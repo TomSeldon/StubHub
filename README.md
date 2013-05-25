@@ -1,6 +1,6 @@
 # StubHub PHP API
 
-A small PHP library for accessing to StubHub API.
+A small PHP library for accessing the StubHub API.
 
 For more information about the StubHub API, visit: http://stubhubapi.stubhub.com/
 
