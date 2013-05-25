@@ -4,6 +4,8 @@ A small PHP library for accessing the StubHub API.
 
 For more information about the StubHub API, visit: http://stubhubapi.stubhub.com/
 
+This project is based on the Ruby implementation by 'rloomba': https://github.com/rloomba/stubhub
+
 ## Usage
 
     require_once "./lib/stubhub.php";
