@@ -12,5 +12,10 @@
             "name": "Jonathan Serle",
             "email": "jserle@jstech-inc.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-0": {
+            "StubHub": "src"
+        }
+    }
 }
