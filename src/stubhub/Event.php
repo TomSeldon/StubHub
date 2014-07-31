@@ -15,6 +15,17 @@ namespace StubHub;
 
     class Event
     {
+
+        /**
+         * @var Client
+         */
+        protected $client;
+
+        public function __construct(Client $client)
+        {
+            $this->client = $client;
+        }
+
         /**
          * find_event_by_id()
          * Search StubHub for event with specified event ID.
@@ -22,14 +33,14 @@ namespace StubHub;
          * @param $options
          * @return string
          */
-        public static function find_event_by_id($event_id, $options=array())
+        public function find_event_by_id($event_id, $options=array())
         {
             $params = array(
                 "stubhubDocumentType"   =>  "event",
                 "event_id"              =>  $event_id
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
 
         /**
@@ -40,7 +51,7 @@ namespace StubHub;
          * @param bool $exact_match
          * @return string
          */
-        public static function search($query, $options=array(), $exact_match=true)
+        public function search($query, $options=array(), $exact_match=true)
         {
             $query = strtolower($query);
 
@@ -57,7 +68,7 @@ namespace StubHub;
                 "description"           =>  $query
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
 
 
@@ -68,14 +79,14 @@ namespace StubHub;
          * @param array $options
          * @return string
          */
-        public static function tickets($event_id, $options=array())
+        public function tickets($event_id, $options=array())
         {
             $params = array(
                 "stubhubDocumentType"   =>  "ticket",
                 "event_id"              =>  (int)$event_id
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
 
     }
