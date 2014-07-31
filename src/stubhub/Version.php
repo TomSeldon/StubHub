@@ -1,4 +1,7 @@
 <?php
+
+namespace StubHub;
+
     /**
      * StubHubApi
      * version.php
@@ -12,5 +15,5 @@
 
     class Version
     {
-        const VERSION = 0.1;
+        const VERSION = 0.2;
     }

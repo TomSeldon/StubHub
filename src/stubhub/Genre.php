@@ -1,4 +1,7 @@
 <?php
+
+namespace StubHub;
+
     /**
      * StubHubApi
      * genre.php
@@ -13,6 +16,16 @@
     class Genre
     {
         /**
+         * @var Client
+         */
+        protected $client;
+
+        public function __construct(Client $client)
+        {
+            $this->client = $client;
+        }
+
+        /**
          * search()
          * Search StubHub for genres matching the specified query string.
          * @param $query
@@ -20,7 +33,7 @@
          * @param bool $exact_match
          * @return string
          */
-        public static function search($query, $options=array(), $exact_match=true)
+        public function search($query, $options=array(), $exact_match=true)
         {
             $query = strtolower($query);
 
@@ -37,6 +50,6 @@
                 "description"           =>  $query
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
     }

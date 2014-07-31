@@ -1,4 +1,7 @@
 <?php
+
+namespace StubHub;
+
     /**
      * StubHubApi
      * ticket.php
@@ -13,19 +16,29 @@
     class Ticket
     {
         /**
+         * @var Client
+         */
+        protected $client;
+
+        public function __construct(Client $client)
+        {
+            $this->client = $client;
+        }
+
+        /**
          * find_ticket_by_id()
          * Get ticket details by ticket ID.
          * @param $ticket_id
          * @param array $options
          * @return string
          */
-        public static function find_ticket_by_id($ticket_id, $options=array())
+        public function find_ticket_by_id($ticket_id, $options=array())
         {
             $params = array(
                 "stubhubDocumentType"   =>  "ticket",
                 "id"                    =>  $ticket_id
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
     }

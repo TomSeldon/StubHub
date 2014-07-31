@@ -1,4 +1,7 @@
 <?php
+
+namespace StubHub;
+
     /**
      * StubHubApi
      * venue.php
@@ -13,20 +16,30 @@
     class Venue
     {
         /**
+         * @var Client
+         */
+        protected $client;
+
+        public function __construct(Client $client)
+        {
+            $this->client = $client;
+        }
+
+        /**
          * find_venue_by_id()
          * Get venue information by venue ID.
          * @param $venue_id
          * @param array $options
          * @return string
          */
-        public static function find_venue_by_id($venue_id, $options=array())
+        public function find_venue_by_id($venue_id, $options=array())
         {
             $params = array(
                 "stubhubDocumentType"    =>  "venue",
                 "venue_id"              =>  (int)$venue_id
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
 
         /**
@@ -37,7 +50,7 @@
          * @param bool $exact_match
          * @return string
          */
-        public static function search($query, $options=array(), $exact_match=true)
+        public function search($query, $options=array(), $exact_match=true)
         {
             $query = strtolower($query);
 
@@ -54,6 +67,6 @@
                 "description"           =>  $query
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
     }

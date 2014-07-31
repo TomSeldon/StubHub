@@ -1,5 +1,7 @@
 <?php
 
+namespace StubHub;
+
     /**
      * StubHubApi
      * client.php
@@ -30,9 +32,9 @@
          * @param null $options
          * @return string
          */
-        public static function make_request($params=array(), $options=array())
+        public function make_request($params=array(), $options=array())
         {
-            $query_url = self::convert_query_to_url($params, $options);
+            $query_url = static::convert_query_to_url($params, $options);
 
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, $query_url);
@@ -81,7 +83,7 @@
          */
         private static function get_options($options)
         {
-            $options = array_merge(self::$default_options, $options);
+            $options = array_merge(static::$default_options, $options);
 
             return $options;
         }

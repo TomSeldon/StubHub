@@ -1,0 +1,7 @@
+<phpunit bootstrap="./bootstrap.php" colors="true" backupGlobals="false">
+    <testsuites>
+        <testsuite name="StubHub">
+            <directory>./</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

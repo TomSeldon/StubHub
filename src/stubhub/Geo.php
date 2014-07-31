@@ -1,4 +1,7 @@
 <?php
+
+namespace StubHub;
+
     /**
      * StubHubApi
      * geo.php
@@ -13,20 +16,30 @@
     class Geo
     {
         /**
+         * @var Client
+         */
+        protected $client;
+
+        public function __construct(Client $client)
+        {
+            $this->client = $client;
+        }
+
+        /**
          * find_by_eo_id()
          * Search StubHub for location with matching geo ID
          * @param $geo_id
          * @param array $options
          * @return string
          */
-        public static function find_by_geo_id($geo_id, $options=array())
+        public function find_by_geo_id($geo_id, $options=array())
         {
             $params = array(
                 "stubhubDocumentType"   =>  "geo",
                 "geoId"                 =>  $geo_id
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
 
         /**
@@ -37,7 +50,7 @@
          * @param bool $exact_match
          * @return string
          */
-        public static function find_by_locale($locale, $options=array(), $exact_match=false)
+        public function find_by_locale($locale, $options=array(), $exact_match=false)
         {
             if($exact_match){
                 $locale = '"' . $locale . '"';
@@ -50,7 +63,7 @@
                 "localeDescription"     =>  $locale
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
 
         /**
@@ -61,7 +74,7 @@
          * @param bool $exact_match
          * @return string
          */
-        public static function search($query, $options=array(), $exact_match=true)
+        public function search($query, $options=array(), $exact_match=true)
         {
             if ($exact_match){
                 $query = '"' . $query . '"';
@@ -74,7 +87,7 @@
                 "description"           =>  $query
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
 
         /**
@@ -84,13 +97,13 @@
          * @param array $options
          * @return string
          */
-        public static function events($geoID, $options=array())
+        public function events($geoID, $options=array())
         {
             $params = array(
                 "stubhubDocumentType"   =>  "event",
                 "ancestorGeoIds"        =>  (int)$geoID
             );
 
-            return Client::make_request($params, $options);
+            return $this->client->make_request($params, $options);
         }
     }
