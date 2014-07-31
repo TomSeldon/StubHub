@@ -1,0 +1,6 @@
+{
+  "name": "TomSeldon/StubHub",
+  "description": "A small PHP library for accessing the StubHub API",
+  "license": "GNU",
+  "type": "library"
+}
