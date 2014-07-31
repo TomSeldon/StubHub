@@ -1,4 +1,7 @@
 <?php
+
+namespace StubHub;
+
     /**
      * StubHubApi
      * venue.php

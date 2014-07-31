@@ -1,5 +1,7 @@
 <?php
 
+namespace StubHub;
+
     /**
      * StubHubApi
      * event.php

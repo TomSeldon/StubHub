@@ -1,6 +1,16 @@
 {
-  "name": "TomSeldon/StubHub",
-  "description": "A small PHP library for accessing the StubHub API",
-  "license": "GNU",
-  "type": "library"
+    "name": "TomSeldon/StubHub",
+    "description": "A small PHP library for accessing the StubHub API",
+    "license": "GNU",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tom Seldon",
+            "email": "tom@tomseldon.co.uk"
+        },
+        {
+            "name": "Jonathan Serle",
+            "email": "jserle@jstech-inc.com"
+        }
+    ]
 }

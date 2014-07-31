@@ -1,5 +1,7 @@
 <?php
 
+namespace StubHub;
+
     /**
      * StubHubApi
      * client.php
